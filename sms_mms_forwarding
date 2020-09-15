@@ -1,3 +1,6 @@
+#!/bin/sh
+set -e
+
 timestamp=$(date +"%Y-%m-%d %T")                                                                                                              
 
 if [ $DECODED_PARTS -eq 0 ]                                                                                                                   
@@ -15,4 +18,4 @@ else
                          part=$(eval echo "\$DECODED_${i}_TEXT")                                                                               
                          message="${message}${part}"                                                                                           
                  done                                                                                                                          
- fi                                                                                                                                            
+fi                                                                                                                                            
