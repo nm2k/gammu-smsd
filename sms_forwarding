@@ -1,0 +1,18 @@
+timestamp=$(date +"%Y-%m-%d %T")                                                                                                              
+
+if [ $DECODED_PARTS -eq 0 ]                                                                                                                   
+then                                                                                                                                          
+         phone_number=$SMS_1_NUMBER                                                                                                            
+         for i in `seq $SMS_MESSAGES`                                                                                                          
+                 do                                                                                                                            
+                         part=$(eval echo "\$SMS_${i}_TEXT")                                                                                   
+                         message="${message}${part}"                                                                                           
+                 done                                                                                                                          
+else                                                                                                                                          
+         phone_number=$DECODED_1_MMS_SENDER                                                                                                    
+         for i in `seq $DECODED_PARTS`                                                                                                         
+                 do                                                                                                                            
+                         part=$(eval echo "\$DECODED_${i}_TEXT")                                                                               
+                         message="${message}${part}"                                                                                           
+                 done                                                                                                                          
+ fi                                                                                                                                            
