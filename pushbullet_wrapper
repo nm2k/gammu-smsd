@@ -1,0 +1,19 @@
+#!/bin/bash
+set -e
+
+PB_DEVICE_ID=
+PB_TOKEN=
+
+# json inquery
+post_data()
+{
+cat <<EOF
+{"body":"${message}","title":"${phone_number}","device_iden":"${PB_DEVICE_ID}","type":"note"}
+EOF
+}
+#echo $(post_data)
+
+# api request
+curl -i -u  $PB_TOKEN \
+	-H 'Content-Type: application/json' \
+	-X POST --data "$(post_data)" "https://api.pushbullet.com/v2/pushes"

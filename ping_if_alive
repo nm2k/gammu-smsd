@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+PHONE_NUMBER=
+systemctl restart gammu-smsd.service
+gammu-smsd-inject TEXT $PHONE_NUMBER -text "alive $(date +"%Y-%m-%d %T")"
