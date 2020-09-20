@@ -5,4 +5,4 @@ DB_USER=
 DB_PASS=
 export phone_number=$(docker exec $DOCKER_CONTAINER psql -U $DB_USER $DB_PASS -tc "SELECT \"SenderNumber\" FROM inbox ORDER BY \"UpdatedInDB\" DESC LIMIT 1;")
 export message=$(docker exec $DOCKER_CONTAINER psql -U $DB_USER $DB_PASS -tc "SELECT \"TextDecoded\" FROM inbox ORDER BY \"UpdatedInDB\" DESC LIMIT 1;")
-
+timestamp=$(date +"%Y-%m-%d %T")
