@@ -1,3 +1,4 @@
+.gitignore
 secret
 pushbullet-bash/
 sms_forwarding
